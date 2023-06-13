@@ -1,0 +1,22 @@
+
+
+.todoList{
+    background-color:rgb(182, 245, 245);
+    display: inline-block;
+    justify-content: center;
+    justify-items: center;
+    width: 700px;
+    height: 700px;
+    padding: 50px;
+    border-radius: 5%;
+}
+.todoform{
+    position: relative;
+    margin: 20px;
+}
+
+#itemList{
+    position: relative;
+    display:inline-block;
+    
+}
