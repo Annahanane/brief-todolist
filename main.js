@@ -1,30 +1,35 @@
-"user strict";
- // recuperation du la div du formulaire
-const todoForm = document.getElementsByClassName('todoForm');
- // Récupération du container qui contiendra nos futurs item.
-const itemListContainer = document.getElementById('itemList');
- // On execute une fonction lors de l'envoi du formulaire.
- function additem() {
-    
+"use strict";
+
  
-todoForm.addEventListener('submit', (event) => {
-    // On désactive l'action du formulaire (redirection/refresh).
-    event.preventDefault();
+ // Récupération de la div du formulaire
+const todoForm = document.querySelector('.todoForm');
 
-    // Récupération du champ de texte pour le nouveau item.
-    const itemInput = document.getElementById('itemInput');
+ // Récupération du conteneur qui va contenir nos futurs éléments
+const itemListContainer = document.getElementById('itemList');
 
-    // On attribut sa valeur à une variable (item).
-    const item = itemInput.value;
+ // Exécution d'une fonction lors de la soumission du formulaire
+function addItem(event) {
+  // On désactive l'action du formulaire (redirection/refresh).
+  event.preventDefault();
 
-    // On créé notre nouvel élément DOM <li> grâce à la fonction document.createElement("li"), 
-    const li = document.createElement('li');
+  // Récupération du champ texte pour le nouvel item
+  const itemInput = document.getElementById('itemInput');
 
-    // On défini le contenu de notre li par le texte récupéré dans notre champ de formulaire.
-    li.textContent = item;
-   
- });
-       // On ajoute notre élément dans notre structure html existante en tant qu'élément enfant de notre container (récupéré plus haut).
- itemListContainer.appendChild(li);
+  // On attribut sa valeur à une variable (item).
+  const item = itemInput.value;
 
+  // On créé notre nouvel élément DOM <li>  
+  const li = document.createElement('li');
+
+  // On défini le contenu de notre li par le texte récupéré dans notre champ de formulaire.
+  li.textContent = item;
+
+  // On ajoute 'li' dans notre structure html existante en tant qu'élément enfant
+  itemListContainer.appendChild(li);
+
+  // Effacer le champ texte après avoir ajouté l'élément
+  itemInput.value = '';
 }
+
+ // Ajouter un écouteur d'événement de soumission au formulaire et appeler la fonction addItem
+todoForm.addEventListener('submit', addItem);
